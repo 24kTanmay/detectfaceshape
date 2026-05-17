@@ -687,7 +687,7 @@ export default function Home() {
 
       {/* Futuristic Branded Sitemap Footer */}
       <footer className="z-10 w-full border-t border-slate-200/80 dark:border-slate-900/80 bg-slate-50 dark:bg-slate-950 py-16 px-6 relative">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 pb-12 border-b border-slate-200/85 dark:border-slate-900/60 text-center justify-items-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-10 pb-12 border-b border-slate-200/85 dark:border-slate-900/60 text-center justify-items-center">
           
           {/* Brand Col */}
           <div className="flex flex-col items-center text-center space-y-4">
@@ -709,29 +709,6 @@ export default function Home() {
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
               MediaPipe WASM Engine Active
             </div>
-          </div>
-
-          {/* Tools Col */}
-          <div className="flex flex-col items-center text-center space-y-4">
-            <h4 className="font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white font-mono">
-              Online Suite
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li><Link href="/" className="text-slate-500 hover:text-blue-500 transition-colors">Face Shape Detector</Link></li>
-              <li><Link href="/" className="text-slate-500 hover:text-blue-500 transition-colors">Symmetry Diagnostics</Link></li>
-              <li><Link href="/" className="text-slate-500 hover:text-blue-500 transition-colors">Hairstyle Recommendations</Link></li>
-            </ul>
-          </div>
-
-          {/* Resources Col */}
-          <div className="flex flex-col items-center text-center space-y-4">
-            <h4 className="font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white font-mono">
-              Resources
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li><Link href="/contact" className="text-slate-500 hover:text-blue-500 transition-colors">Support Center</Link></li>
-              <li><Link href="/contact" className="text-slate-500 hover:text-blue-500 transition-colors">Contact Us</Link></li>
-            </ul>
           </div>
 
           {/* Connect Col */}

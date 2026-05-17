@@ -254,7 +254,7 @@ export default function BlogPostPage({ params }) {
 
       {/* Centered Footer */}
       <footer className="z-10 w-full border-t border-slate-200 dark:border-slate-900 bg-slate-50 dark:bg-slate-950 py-16 px-6 relative mt-16">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 pb-12 border-b border-slate-200 dark:border-slate-900 text-center justify-items-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-10 pb-12 border-b border-slate-200 dark:border-slate-900 text-center justify-items-center">
           
           {/* Brand Col */}
           <div className="flex flex-col items-center text-center space-y-4">
@@ -275,29 +275,6 @@ export default function BlogPostPage({ params }) {
               <span className="h-2 w-2 rounded-full bg-emerald-600 dark:bg-emerald-500 animate-pulse" />
               MediaPipe WASM Engine Active
             </div>
-          </div>
-
-          {/* Tools Col */}
-          <div className="flex flex-col items-center text-center space-y-4">
-            <h4 className="font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white font-mono">
-              Online Suite
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li><Link href="/" className="text-slate-650 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Face Shape Detector</Link></li>
-              <li><Link href="/" className="text-slate-650 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Symmetry Diagnostics</Link></li>
-              <li><Link href="/" className="text-slate-650 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Hairstyle Recommendations</Link></li>
-            </ul>
-          </div>
-
-          {/* Resources Col */}
-          <div className="flex flex-col items-center text-center space-y-4">
-            <h4 className="font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white font-mono">
-              Resources
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li><Link href="/contact" className="text-slate-655 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Support Center</Link></li>
-              <li><Link href="/contact" className="text-slate-655 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact Us</Link></li>
-            </ul>
           </div>
 
           {/* Connect Col */}
