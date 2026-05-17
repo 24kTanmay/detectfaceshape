@@ -75,7 +75,7 @@ export default function UploadZone({ onImageSelected }) {
         className={`group relative flex flex-col items-center justify-center border-2 border-dashed rounded-2xl p-10 sm:p-14 cursor-pointer text-center select-none transition-all duration-300 ${
           isDragActive
             ? "border-cyan-400 bg-cyan-50 dark:bg-cyan-950/20 shadow-lg shadow-cyan-500/20 scale-[1.01]"
-            : "border-blue-300 dark:border-slate-800 bg-white shadow-xl shadow-slate-200/50 dark:shadow-none dark:bg-slate-900/40 hover:border-blue-400 hover:bg-blue-50/50 dark:hover:bg-slate-900/60 hover:shadow-blue-500/10"
+            : "border-blue-300 dark:border-slate-800 bg-slate-50 shadow-xl shadow-slate-200/50 dark:shadow-none dark:bg-slate-900/40 hover:border-blue-400 hover:bg-blue-50/50 dark:hover:bg-slate-900/60 hover:shadow-blue-500/10"
         }`}
       >
         <input
