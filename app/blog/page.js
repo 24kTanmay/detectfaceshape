@@ -80,7 +80,10 @@ export default function BlogListingPage() {
             Facial Intelligence Blog
           </div>
           <h1 className="text-4xl sm:text-5xl font-black font-mono tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
-            Expert Biometrics <br />& <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">Styling Ratios</span>
+            Expert Biometrics <br />& <span 
+              className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400"
+              style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+            >Styling Ratios</span>
           </h1>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
             Discover how computer vision, facial landmark ratios, and bone structure dynamics shape the perfect hairstyles, glasses frames, and grooming routines.
