@@ -8,12 +8,148 @@ import AnalyzingScreen from "../components/AnalyzingScreen";
 import FaceAnalyzer from "../components/FaceAnalyzer";
 import ThemeToggle from "../components/ThemeToggle";
 
+const faceShapes = [
+  {
+    name: "Oval",
+    desc: "An oval face shape is characterized by balanced proportions where the face length is slightly longer than its width. The forehead is typically wider than the jawline, with softly rounded edges and a gently tapered chin. An oval shaped face is commonly described as even and symmetrical.",
+    geometry: <ellipse cx="50" cy="46" rx="20" ry="28" stroke="currentColor" strokeWidth="2.5" fill="none" />
+  },
+  {
+    name: "Round",
+    desc: "A round face shape has a similar width and length with soft, curved lines. The cheeks are usually full, and the jawline is smooth rather than sharp. A round shaped face often appears balanced and youthful, with fewer angles and a gently rounded overall appearance.",
+    geometry: <circle cx="50" cy="46" r="23" stroke="currentColor" strokeWidth="2.5" fill="none" />
+  },
+  {
+    name: "Heart",
+    desc: "A heart face shape is wider at the forehead and gradually narrows toward the chin. The cheekbones are often noticeable, and the chin may appear pointed. A heart shaped face creates a top-heavy appearance with a softer, slimmer lower face and clear facial contrast.",
+    geometry: <path d="M50 72C50 72 28 56 28 42C28 31 37 24 46 28C48 29 50 31 50 31C50 31 52 29 54 28C63 24 72 31 72 42C72 56 50 72 50 72Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
+  },
+  {
+    name: "Diamond",
+    desc: "A diamond face shape has a narrow forehead and jawline with wide, prominent cheekbones. The face appears angular, with sharper lines and a slightly pointed chin. A diamond shaped face is less common and is defined by strong cheekbone structure and balanced facial length.",
+    geometry: <polygon points="50,18 76,46 50,74 24,46" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
+  },
+  {
+    name: "Square",
+    desc: "A square face shape has strong, straight lines with similar width across the forehead, cheekbones, and jawline. The jaw is usually broad and well defined, creating a structured look. This face shape often appears balanced and angular, with clear edges rather than soft curves.",
+    geometry: <rect x="27" y="23" width="46" height="46" rx="4" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
+  },
+  {
+    name: "Oblong",
+    desc: "An oblong face shape is longer than it is wide, with a straight cheek line and a narrow jaw. The forehead, cheeks, and jaw are usually similar in width. This face shape has a long, slim appearance with fewer curves and a more rectangular overall outline.",
+    geometry: <rect x="32" y="16" width="36" height="60" rx="10" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
+  }
+];
+
+const tableRows = [
+  {
+    name: "Round",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 32 32">
+        <circle cx="16" cy="16" r="10" stroke="currentColor" strokeWidth="2.5" fill="none" className="text-rose-500/70" />
+      </svg>
+    ),
+    mens: ["Short sides with volume on top", "Textured quiff", "Side-parted styles"],
+    womens: ["Long layers", "Side-swept bangs", "High ponytails"]
+  },
+  {
+    name: "Square",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 32 32">
+        <rect x="7" y="7" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2.5" fill="none" className="text-indigo-500/70" />
+      </svg>
+    ),
+    mens: ["Crew cut", "Short textured crop", "Slicked-back styles"],
+    womens: ["Soft waves", "Curtain bangs", "Long layered cuts"]
+  },
+  {
+    name: "Oval",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 32 32">
+        <ellipse cx="16" cy="16" rx="8" ry="12" stroke="currentColor" strokeWidth="2.5" fill="none" className="text-emerald-500/70" />
+      </svg>
+    ),
+    mens: ["Buzz cut", "Pompadour", "Side part"],
+    womens: ["Blunt bob", "Long waves", "Pixie cut"]
+  },
+  {
+    name: "Heart",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 32 32">
+        <path d="M16 26s-8-5-8-10c0-3.5 2.5-6 6.5-4.5 1 .5 1.5 1.5 1.5 1.5s.5-1 1.5-1.5c4-1.5 6.5 1 6.5 4.5 0 5-8 10-8 10z" stroke="currentColor" strokeWidth="2.5" fill="none" className="text-pink-500/70" />
+      </svg>
+    ),
+    mens: ["Medium-length styles with side sweep", "Textured fringe"],
+    womens: ["Chin-length bob", "Curtain/side bangs", "Loose waves"]
+  },
+  {
+    name: "Diamond",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 32 32">
+        <polygon points="16,5 27,16 16,27 5,16" stroke="currentColor" strokeWidth="2.5" fill="none" className="text-amber-500/70" />
+      </svg>
+    ),
+    mens: ["Fringe", "Side-parted medium styles", "Slight volume on sides"],
+    womens: ["Shoulder-length cuts", "Textured bobs", "Deep side parts"]
+  },
+  {
+    name: "Oblong",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 32 32">
+        <rect x="9" y="5" width="14" height="22" rx="4" stroke="currentColor" strokeWidth="2.5" fill="none" className="text-cyan-500/70" />
+      </svg>
+    ),
+    mens: ["Shorter sides with moderate top volume", "Side-swept bangs", "Textured crop or fringe to shorten face"],
+    womens: ["Shoulder-length or layered cuts", "Side-swept bangs", "Wavy or curly styles to add width"]
+  }
+];
+
+const faqs = [
+  {
+    q: "How can I detect my face shape with this tool?",
+    a: "Simply upload a clear, front-facing photo or take a selfie using your webcam. The client-side AI will scan your facial landmarks instantly and determine your face shape."
+  },
+  {
+    q: "Is the face shape detection accurate?",
+    a: "Yes! The tool utilizes advanced MediaPipe WebAssembly models to calculate 468 precise biometric landmarks, evaluating facial length, width, jawline angles, and symmetry ratios to classify your shape accurately."
+  },
+  {
+    q: "Can this help me choose a suitable hairstyle?",
+    a: "Absolutely! Once your face shape is identified, our system generates custom styling suggestions and compatible haircut lists for both men and women to flatter your natural symmetry."
+  },
+  {
+    q: "Do I need to download anything to use it?",
+    a: "No downloads or installations are required. The entire process runs directly in your web browser, ensuring lightning-fast results."
+  },
+  {
+    q: "Can I use this tool for free?",
+    a: "Yes, DetectFaceShape.shop is 100% free to use. There are no hidden fees, signups, or subscription plans."
+  },
+  {
+    q: "How does the tool identify my face shape?",
+    a: "It scans the outer contour of your face, measures jawline angles, compares forehead width to cheekbone and jawline width, and evaluates height-to-width ratios."
+  },
+  {
+    q: "What if I'm not sure about my face type?",
+    a: "You can scan multiple photos or check our comprehensive guide below to manually compare your features with standard shapes."
+  },
+  {
+    q: "Is this tool beginner-friendly?",
+    a: "Yes, it is designed to be highly intuitive. Just upload a selfie, and the system handles all the analysis in less than 3 seconds."
+  }
+];
+
 export default function Home() {
   const router = useRouter();
   const [imageSrc, setImageSrc] = useState(null);
   const [status, setStatus] = useState("idle"); // idle, analyzing, error
   const [errorType, setErrorType] = useState(null); // no_face, multiple_faces, analysis_failed
   const [startTime, setStartTime] = useState(null);
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
 
   const handleImageSelected = (dataUrl) => {
     setImageSrc(dataUrl);
@@ -245,6 +381,189 @@ export default function Home() {
             <div className="text-sm font-bold text-slate-900 dark:text-white font-mono">STYLING</div>
             <div className="text-[10px] text-slate-500 tracking-wider font-semibold uppercase">Style Matches</div>
           </div>
+        </div>
+      </section>
+
+      {/* How to Use Section */}
+      <section className="z-10 w-full max-w-5xl mx-auto px-6 py-16 text-center border-t border-slate-200/80 dark:border-slate-900/80">
+        <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 dark:text-white mb-12">
+          How To Use AI Face Shape Detector?
+        </h2>
+        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
+          {/* Connector line (desktop only) */}
+          <div className="hidden md:block absolute top-[44px] left-[15%] right-[15%] h-0.5 bg-slate-200 dark:bg-slate-800 -z-10" />
+
+          {/* Step 1 */}
+          <div className="flex flex-col items-center text-center px-4 space-y-4">
+            <div className="w-16 h-16 rounded-full bg-yellow-400 text-slate-950 flex items-center justify-center shadow-lg font-bold">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-bold font-mono uppercase tracking-wider text-slate-900 dark:text-white italic">
+              Upload a photo
+            </h3>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-xs">
+              Use the button below to select an image or take a photo
+            </p>
+          </div>
+
+          {/* Step 2 */}
+          <div className="flex flex-col items-center text-center px-4 space-y-4">
+            <div className="w-16 h-16 rounded-full bg-yellow-400 text-slate-950 flex items-center justify-center shadow-lg font-bold">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-bold font-mono uppercase tracking-wider text-slate-900 dark:text-white italic">
+              Scan & Analyze
+            </h3>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-xs">
+              The AI will automatically detect and analyze the face shape along with other features in the photo
+            </p>
+          </div>
+
+          {/* Step 3 */}
+          <div className="flex flex-col items-center text-center px-4 space-y-4">
+            <div className="w-16 h-16 rounded-full bg-yellow-400 text-slate-950 flex items-center justify-center shadow-lg font-bold">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.303.197l-1.591 1.591M21.75 12h-2.25m-.197 5.303l-1.591-1.591M12 21.75V19.5m-5.303-.197l1.591-1.591M2.25 12h2.25m.197-5.303l1.591 1.591" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-bold font-mono uppercase tracking-wider text-slate-900 dark:text-white italic">
+              Check Results
+            </h3>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-xs">
+              You can review your face shape analysis along with personalized recommendations.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Face Shape Types Section */}
+      <section className="z-10 w-full max-w-6xl mx-auto px-6 py-16 text-center border-t border-slate-200/80 dark:border-slate-900/80">
+        <div className="space-y-4 mb-12">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 dark:text-white">
+            Face Shape Types
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 font-medium">
+            The six most common face shapes
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {faceShapes.map((shape) => (
+            <div
+              key={shape.name}
+              className="flex flex-col items-center bg-slate-50/50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-8 hover:shadow-xl hover:border-blue-500/30 dark:hover:border-blue-500/20 transition-all duration-300 group"
+            >
+              {/* Profile silhouette illustration */}
+              <div className="w-20 h-20 rounded-full bg-white dark:bg-slate-800 shadow-md flex items-center justify-center border border-slate-200/60 dark:border-slate-700/60 mb-6 group-hover:scale-110 transition-transform duration-300">
+                {/* Silhouette SVG face outline */}
+                <svg className="w-14 h-14 text-slate-700 dark:text-slate-300" viewBox="0 0 100 100" fill="none">
+                  {/* Outer head silhouette */}
+                  <path d="M 50 12 C 34 12 34 32 34 46 C 34 56 38 68 44 74 C 47 78 48 81 48 83 C 48 84 52 84 52 83 C 52 81 53 78 56 74 C 62 68 66 56 66 46 C 66 32 66 12 50 12 Z" fill="currentColor" opacity="0.15" />
+                  {/* Distinctive Face Shape Geometry */}
+                  {shape.geometry}
+                </svg>
+              </div>
+
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                {shape.name}
+              </h3>
+              
+              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed text-center">
+                {shape.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Hairstyle Table Section */}
+      <section className="z-10 w-full max-w-5xl mx-auto px-6 py-16 border-t border-slate-200/80 dark:border-slate-900/80">
+        <div className="space-y-4 mb-12 text-center">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 dark:text-white">
+            Hairstyle Ideas for Every Face Shape
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 font-sans max-w-2xl mx-auto">
+            Discover hairstyles that flatter your face shape. Upload a photo to detect face shape and get personalized hairstyle recommendations for men and women.
+          </p>
+        </div>
+
+        <div className="w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md">
+          <table className="w-full border-collapse bg-white dark:bg-slate-900 text-left text-sm text-slate-600 dark:text-slate-400">
+            <thead className="bg-slate-50 dark:bg-slate-850 text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-800">
+              <tr>
+                <th scope="col" className="px-6 py-4">Face Shape</th>
+                <th scope="col" className="px-6 py-4">Men&apos;s Hairstyle</th>
+                <th scope="col" className="px-6 py-4">Women&apos;s Hairstyle</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-200 dark:divide-slate-800/80">
+              {tableRows.map((row) => (
+                <tr key={row.name} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors">
+                  <td className="px-6 py-5 font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center border border-slate-200/60 dark:border-slate-700/60 text-blue-500">
+                      {row.icon}
+                    </div>
+                    {row.name}
+                  </td>
+                  <td className="px-6 py-5">
+                    <ul className="list-disc list-inside space-y-1.5">
+                      {row.mens.map((style) => (
+                        <li key={style} className="text-slate-600 dark:text-slate-400"><span className="text-slate-900 dark:text-slate-200 font-medium">{style}</span></li>
+                      ))}
+                    </ul>
+                  </td>
+                  <td className="px-6 py-5">
+                    <ul className="list-disc list-inside space-y-1.5">
+                      {row.womens.map((style) => (
+                        <li key={style} className="text-slate-600 dark:text-slate-400"><span className="text-slate-900 dark:text-slate-200 font-medium">{style}</span></li>
+                      ))}
+                    </ul>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="z-10 w-full max-w-4xl mx-auto px-6 py-16 border-t border-slate-200/80 dark:border-slate-900/80">
+        <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 dark:text-white mb-12 text-center">
+          Frequently Asked Questions
+        </h2>
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className="border-b border-slate-200 dark:border-slate-800/80 pb-4 transition-colors duration-300"
+            >
+              <button
+                onClick={() => toggleFaq(index)}
+                className="w-full flex items-center justify-between py-3 text-left font-bold text-slate-900 dark:text-white hover:text-blue-500 transition-colors focus:outline-none"
+              >
+                <span className="flex items-center gap-3">
+                  <span className="text-blue-500">▶</span>
+                  {faq.q}
+                </span>
+                <span className={`text-xl font-bold text-yellow-500 transition-transform duration-300 ${openFaqIndex === index ? "rotate-45" : ""}`}>
+                  +
+                </span>
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  openFaqIndex === index ? "max-h-[300px] pt-2 pb-4" : "max-h-0"
+                }`}
+              >
+                <p className="text-sm text-slate-600 dark:text-slate-400 pl-6 leading-relaxed">
+                  {faq.a}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
