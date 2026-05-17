@@ -13,7 +13,7 @@ export default function ShareCard({ symmetry, shape }) {
   }
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 text-center relative overflow-hidden shadow-2xl">
+    <div className="bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 rounded-2xl p-6 sm:p-8 text-center relative overflow-hidden shadow-2xl">
       {/* Decorative high-tech grid ambient background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,#3b82f610,transparent)] pointer-events-none" />
 
@@ -36,19 +36,19 @@ export default function ShareCard({ symmetry, shape }) {
         </div>
 
         <div className="space-y-2">
-          <h3 className="text-xl font-bold text-white tracking-wide">Share Your Biometric Report</h3>
-          <p className="text-xs text-slate-400 leading-relaxed font-mono uppercase">
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-wide">Share Your Biometric Report</h3>
+          <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-mono uppercase">
             Let friends compare their geometry and symmetry scores
           </p>
         </div>
 
         {/* High fidelity share card mockup preview */}
-        <div className="bg-slate-950 border border-slate-800 rounded-xl p-5 text-left font-mono relative overflow-hidden select-all shadow-inner">
+        <div className="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-xl p-5 text-left font-mono relative overflow-hidden select-all shadow-inner">
           <div className="absolute top-2 right-2 text-[10px] text-slate-500 tracking-widest uppercase">
             VERIFIED_SCAN
           </div>
           <div className="text-[11px] text-blue-400 mb-2 font-semibold">🧬 BIOMETRIC SUMMARY</div>
-          <p className="text-xs text-slate-200 leading-relaxed font-sans italic border-l-2 border-blue-500 pl-3 py-1 bg-slate-900/30 rounded-r">
+          <p className="text-xs text-slate-800 dark:text-slate-200 leading-relaxed font-sans italic border-l-2 border-blue-500 pl-3 py-1 bg-white/30 dark:bg-slate-900/30 rounded-r">
             &quot;{shareText}&quot;
           </p>
         </div>
@@ -59,14 +59,14 @@ export default function ShareCard({ symmetry, shape }) {
             onClick={copyToClipboard}
             className={`w-full sm:w-auto min-w-[200px] px-6 py-3 rounded-xl text-sm font-bold tracking-wide uppercase shadow-lg transition-all duration-300 flex items-center justify-center gap-2 ${
               copied
-                ? "bg-emerald-600 text-white shadow-emerald-500/10 cursor-default"
-                : "bg-blue-600 hover:bg-blue-500 text-white shadow-blue-500/15 hover:shadow-blue-500/25 hover:-translate-y-0.5"
+                ? "bg-emerald-600 text-slate-900 dark:text-white shadow-emerald-500/10 cursor-default"
+                : "bg-blue-600 hover:bg-blue-500 text-slate-900 dark:text-white shadow-blue-500/15 hover:shadow-blue-500/25 hover:-translate-y-0.5"
             }`}
           >
             {copied ? (
               <>
                 <svg
-                  className="w-4 h-4 text-white animate-[bounce_0.5s_ease]"
+                  className="w-4 h-4 text-slate-900 dark:text-white animate-[bounce_0.5s_ease]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -84,7 +84,7 @@ export default function ShareCard({ symmetry, shape }) {
             ) : (
               <>
                 <svg
-                  className="w-4 h-4 text-white"
+                  className="w-4 h-4 text-slate-900 dark:text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

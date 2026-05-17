@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import UploadZone from "../components/UploadZone";
 import AnalyzingScreen from "../components/AnalyzingScreen";
 import FaceAnalyzer from "../components/FaceAnalyzer";
+import ThemeToggle from "../components/ThemeToggle";
 
 export default function Home() {
   const router = useRouter();
@@ -74,10 +75,10 @@ export default function Home() {
     }
 
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-slate-950 text-slate-100 p-6 relative">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 p-6 relative">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
         
-        <div className="z-10 max-w-md w-full bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center space-y-6 shadow-2xl">
+        <div className="z-10 max-w-md w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 rounded-2xl p-8 text-center space-y-6 shadow-2xl">
           {/* Diagnostic Error Visual */}
           <div className="w-16 h-16 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 flex items-center justify-center mx-auto">
             <svg
@@ -100,13 +101,13 @@ export default function Home() {
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-950 border border-red-800 text-[10px] font-mono tracking-widest text-red-400 uppercase">
               SCAN_STATUS: FAILED
             </div>
-            <h2 className="text-xl font-bold text-white tracking-tight">{errorHeadline}</h2>
-            <p className="text-sm text-slate-400 leading-relaxed font-sans">{errorMessage}</p>
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">{errorHeadline}</h2>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-sans">{errorMessage}</p>
           </div>
 
           {/* Guidelines checklist */}
-          <div className="bg-slate-950/60 border border-slate-900 rounded-xl p-4 text-left text-xs text-slate-400 space-y-2.5 font-sans">
-            <div className="font-semibold text-slate-300 font-mono tracking-wide uppercase mb-1">RECOMMENDED SCAN GUIDELINES:</div>
+          <div className="bg-slate-50/60 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-900 rounded-xl p-4 text-left text-xs text-slate-600 dark:text-slate-400 space-y-2.5 font-sans">
+            <div className="font-semibold text-slate-700 dark:text-slate-300 font-mono tracking-wide uppercase mb-1">RECOMMENDED SCAN GUIDELINES:</div>
             <div className="flex items-start gap-2">
               <span className="text-blue-400 mt-0.5">•</span>
               <span>Front-facing view: Look directly at the camera.</span>
@@ -123,7 +124,7 @@ export default function Home() {
 
           <button
             onClick={handleReset}
-            className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm tracking-wide uppercase transition-all duration-300 shadow-md shadow-blue-500/10 hover:shadow-blue-500/25 active:scale-95"
+            className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-slate-900 dark:text-white font-bold text-sm tracking-wide uppercase transition-all duration-300 shadow-md shadow-blue-500/10 hover:shadow-blue-500/25 active:scale-95"
           >
             Re-Calibrate scanner
           </button>
@@ -148,7 +149,7 @@ export default function Home() {
 
   // Default Landing Page
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between relative overflow-hidden select-none">
+    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col justify-between relative overflow-hidden select-none">
       {/* High tech technical grids */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-35 pointer-events-none" />
 
@@ -157,11 +158,11 @@ export default function Home() {
       <div className="absolute bottom-[-10%] right-[5%] w-[40rem] h-[40rem] bg-teal-500/5 rounded-full blur-[150px] pointer-events-none" />
 
       {/* Navigation Header */}
-      <header className="z-10 w-full max-w-7xl mx-auto px-6 py-6 flex justify-between items-center border-b border-slate-900/60 bg-slate-950/50 backdrop-blur-md">
+      <header className="z-10 w-full max-w-7xl mx-auto px-6 py-6 flex justify-between items-center border-b border-slate-200/60 dark:border-slate-900/60 bg-slate-50/50 dark:bg-slate-950/50 backdrop-blur-md">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-500/10">
             <svg
-              className="w-5 h-5 text-white"
+              className="w-5 h-5 text-slate-900 dark:text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -175,12 +176,15 @@ export default function Home() {
               />
             </svg>
           </div>
-          <span className="font-bold font-mono tracking-wider text-sm uppercase text-white">
+          <span className="font-bold font-mono tracking-wider text-sm uppercase text-slate-900 dark:text-white">
             DetectFaceShape<span className="text-blue-400">.shop</span>
           </span>
         </div>
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-[10px] font-mono tracking-widest text-slate-400 uppercase">
-          WASM_V1.0.0
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-[10px] font-mono tracking-widest text-slate-600 dark:text-slate-400 uppercase">
+            WASM_V1.0.0
+          </div>
         </div>
       </header>
 
@@ -196,11 +200,11 @@ export default function Home() {
             Local Client-Side Diagnostics
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white leading-[1.1] max-w-3xl mx-auto">
+          <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] max-w-3xl mx-auto">
             Analyze Your Face Shape & Symmetry Instantly
           </h1>
           
-          <p className="text-base sm:text-lg text-slate-400 font-sans max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-sans max-w-2xl mx-auto leading-relaxed">
             Upload your selfie to calculate 468 landmarks, verify facial symmetry score, and identify optimal hairstyles using client-side AI.
           </p>
         </div>
@@ -209,28 +213,28 @@ export default function Home() {
         <UploadZone onImageSelected={handleImageSelected} />
 
         {/* Features Specs list */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-3xl pt-8 border-t border-slate-900/80">
-          <div className="p-4 bg-slate-900/20 border border-slate-900/60 rounded-xl space-y-1">
-            <div className="text-sm font-bold text-white font-mono">468 POINTS</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-3xl pt-8 border-t border-slate-200/80 dark:border-slate-900/80">
+          <div className="p-4 bg-white/20 dark:bg-slate-900/20 border border-slate-200/60 dark:border-slate-900/60 rounded-xl space-y-1">
+            <div className="text-sm font-bold text-slate-900 dark:text-white font-mono">468 POINTS</div>
             <div className="text-[10px] text-slate-500 tracking-wider font-semibold uppercase">Face Mesh Scan</div>
           </div>
-          <div className="p-4 bg-slate-900/20 border border-slate-900/60 rounded-xl space-y-1">
-            <div className="text-sm font-bold text-white font-mono">100% SECURE</div>
+          <div className="p-4 bg-white/20 dark:bg-slate-900/20 border border-slate-200/60 dark:border-slate-900/60 rounded-xl space-y-1">
+            <div className="text-sm font-bold text-slate-900 dark:text-white font-mono">100% SECURE</div>
             <div className="text-[10px] text-slate-500 tracking-wider font-semibold uppercase">No Server Uploads</div>
           </div>
-          <div className="p-4 bg-slate-900/20 border border-slate-900/60 rounded-xl space-y-1">
-            <div className="text-sm font-bold text-white font-mono">BIO-METRIC</div>
+          <div className="p-4 bg-white/20 dark:bg-slate-900/20 border border-slate-200/60 dark:border-slate-900/60 rounded-xl space-y-1">
+            <div className="text-sm font-bold text-slate-900 dark:text-white font-mono">BIO-METRIC</div>
             <div className="text-[10px] text-slate-500 tracking-wider font-semibold uppercase">Symmetry & Jawline</div>
           </div>
-          <div className="p-4 bg-slate-900/20 border border-slate-900/60 rounded-xl space-y-1">
-            <div className="text-sm font-bold text-white font-mono">STYLING</div>
+          <div className="p-4 bg-white/20 dark:bg-slate-900/20 border border-slate-200/60 dark:border-slate-900/60 rounded-xl space-y-1">
+            <div className="text-sm font-bold text-slate-900 dark:text-white font-mono">STYLING</div>
             <div className="text-[10px] text-slate-500 tracking-wider font-semibold uppercase">Style Matches</div>
           </div>
         </div>
       </section>
 
       {/* Sticky Footer */}
-      <footer className="z-10 w-full border-t border-slate-900/60 py-6 text-center text-xs text-slate-500 font-sans px-6 bg-slate-950/20">
+      <footer className="z-10 w-full border-t border-slate-200/60 dark:border-slate-900/60 py-6 text-center text-xs text-slate-500 font-sans px-6 bg-slate-50/20 dark:bg-slate-950/20">
         © 2026 DetectFaceShape.shop. Powered by client-side MediaPipe WASM. No rights reserved.
       </footer>
     </main>

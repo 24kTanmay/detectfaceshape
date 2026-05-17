@@ -7,8 +7,8 @@ export default function HairstyleSection({ shape }) {
   const recommendations = hairstyleRecommendations[shape] || hairstyleRecommendations.oval;
 
   return (
-    <div className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 sm:p-8 shadow-xl">
-      <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-800">
+    <div className="bg-white/40 dark:bg-slate-900/40 border border-slate-300/80 dark:border-slate-800/80 rounded-2xl p-6 sm:p-8 shadow-xl">
+      <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-300 dark:border-slate-800">
         <div className="space-y-2 max-w-2xl">
           <div className="flex items-center gap-3">
             <span className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-xs font-semibold font-mono tracking-wider text-blue-400 uppercase">
@@ -16,17 +16,17 @@ export default function HairstyleSection({ shape }) {
             </span>
             <span className="text-xs text-slate-500 font-mono">ID: {shape?.toUpperCase()}_SHAPE</span>
           </div>
-          <h3 className="text-3xl font-black text-white tracking-tight capitalize">
+          <h3 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight capitalize">
             {shape} Face Geometry Recommendations
           </h3>
-          <p className="text-sm text-slate-300 leading-relaxed">
+          <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
             {recommendations.description}
           </p>
         </div>
 
         {/* Strengths / Key Features List */}
         <div className="flex-shrink-0 space-y-2">
-          <p className="text-xs font-semibold tracking-wider font-mono text-slate-400 uppercase">
+          <p className="text-xs font-semibold tracking-wider font-mono text-slate-600 dark:text-slate-400 uppercase">
             STRUCTURAL STRENGTHS
           </p>
           <div className="flex flex-wrap gap-2 md:flex-col md:items-start">
@@ -58,7 +58,7 @@ export default function HairstyleSection({ shape }) {
 
       {/* Recommended Styles Grid */}
       <div className="mt-8">
-        <h4 className="text-xs font-semibold tracking-wider font-mono text-slate-400 uppercase mb-5">
+        <h4 className="text-xs font-semibold tracking-wider font-mono text-slate-600 dark:text-slate-400 uppercase mb-5">
           TARGETED HAIRSTYLES
         </h4>
         
@@ -83,27 +83,27 @@ export default function HairstyleSection({ shape }) {
             return (
               <div
                 key={idx}
-                className="group relative bg-slate-950 border border-slate-900 hover:border-blue-500/40 p-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5 hover:-translate-y-0.5"
+                className="group relative bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 hover:border-blue-500/40 p-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5 hover:-translate-y-0.5"
               >
                 {/* Card visual elements */}
                 <div className="absolute top-4 right-4 text-slate-700 font-mono text-lg font-bold group-hover:text-blue-500/30 transition-colors">
                   #0{idx + 1}
                 </div>
 
-                <div className="w-10 h-10 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:border-blue-500/30 transition-colors">
+                <div className="w-10 h-10 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:border-blue-500/30 transition-colors">
                   {icons[idx] || icons[0]}
                 </div>
 
-                <h5 className="text-lg font-bold text-white group-hover:text-blue-200 transition-colors">
+                <h5 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-200 transition-colors">
                   {style.name}
                 </h5>
                 
-                <p className="text-xs text-slate-400 leading-relaxed mt-2 font-medium">
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-2 font-medium">
                   {style.reason}
                 </p>
 
                 {/* Glowing bottom line indicator on hover */}
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-slate-900 overflow-hidden">
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white dark:bg-slate-900 overflow-hidden">
                   <div className="h-full bg-gradient-to-r from-blue-600 to-cyan-500 w-0 group-hover:w-full transition-all duration-300 ease-out" />
                 </div>
               </div>

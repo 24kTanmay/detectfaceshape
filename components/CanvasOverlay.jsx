@@ -135,12 +135,12 @@ export default function CanvasOverlay({ imageDataUrl, landmarks }) {
   }, [imageDataUrl, landmarks, showLandmarks, showMesh, showSymmetry]);
 
   return (
-    <div ref={containerRef} className="flex flex-col bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+    <div ref={containerRef} className="flex flex-col bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
       {/* Header section with interactive scan status */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-5 border-b border-slate-800 bg-slate-900/50 gap-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-5 border-b border-slate-300 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 gap-4">
         <div>
-          <h3 className="text-lg font-bold text-white tracking-wide">Interactive 3D Landmark Grid</h3>
-          <p className="text-xs text-slate-400 font-mono mt-1 uppercase">Local WebAssembly Vector Mapping</p>
+          <h3 className="text-lg font-bold text-slate-900 dark:text-white tracking-wide">Interactive 3D Landmark Grid</h3>
+          <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-1 uppercase">Local WebAssembly Vector Mapping</p>
         </div>
         
         {/* Toggle buttons for layers */}
@@ -150,7 +150,7 @@ export default function CanvasOverlay({ imageDataUrl, landmarks }) {
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wider font-mono border transition-all duration-300 ${
               showMesh
                 ? "bg-sky-500/10 text-sky-400 border-sky-500/30"
-                : "bg-slate-950 text-slate-500 border-slate-900"
+                : "bg-slate-50 dark:bg-slate-950 text-slate-500 border-slate-200 dark:border-slate-900"
             }`}
           >
             MESH GRAPH
@@ -160,7 +160,7 @@ export default function CanvasOverlay({ imageDataUrl, landmarks }) {
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wider font-mono border transition-all duration-300 ${
               showLandmarks
                 ? "bg-cyan-500/10 text-cyan-400 border-cyan-500/30"
-                : "bg-slate-950 text-slate-500 border-slate-900"
+                : "bg-slate-50 dark:bg-slate-950 text-slate-500 border-slate-200 dark:border-slate-900"
             }`}
           >
             LANDMARKS (468)
@@ -170,7 +170,7 @@ export default function CanvasOverlay({ imageDataUrl, landmarks }) {
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wider font-mono border transition-all duration-300 ${
               showSymmetry
                 ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30"
-                : "bg-slate-950 text-slate-500 border-slate-900"
+                : "bg-slate-50 dark:bg-slate-950 text-slate-500 border-slate-200 dark:border-slate-900"
             }`}
           >
             AXES OVERLAYS
@@ -179,14 +179,14 @@ export default function CanvasOverlay({ imageDataUrl, landmarks }) {
       </div>
 
       {/* Canvas wrapper with modern medical scan guidelines */}
-      <div className="relative flex justify-center bg-slate-950 p-6 sm:p-12 overflow-hidden select-none">
+      <div className="relative flex justify-center bg-slate-50 dark:bg-slate-950 p-6 sm:p-12 overflow-hidden select-none">
         {/* Decorative corner crosshairs */}
-        <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-slate-700/80 pointer-events-none" />
-        <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-slate-700/80 pointer-events-none" />
-        <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-slate-700/80 pointer-events-none" />
-        <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-slate-700/80 pointer-events-none" />
+        <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-slate-400/80 dark:border-slate-700/80 pointer-events-none" />
+        <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-slate-400/80 dark:border-slate-700/80 pointer-events-none" />
+        <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-slate-400/80 dark:border-slate-700/80 pointer-events-none" />
+        <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-slate-400/80 dark:border-slate-700/80 pointer-events-none" />
 
-        <div className="relative max-w-full max-h-[60vh] flex items-center justify-center border border-slate-800/60 rounded-xl overflow-hidden shadow-2xl">
+        <div className="relative max-w-full max-h-[60vh] flex items-center justify-center border border-slate-300/60 dark:border-slate-800/60 rounded-xl overflow-hidden shadow-2xl">
           <canvas
             ref={canvasRef}
             className="w-full h-auto object-contain max-h-[60vh]"
@@ -194,7 +194,7 @@ export default function CanvasOverlay({ imageDataUrl, landmarks }) {
           />
           {!imageLoaded && (
             <div className="flex flex-col items-center justify-center p-20 text-slate-500 space-y-4">
-              <div className="w-8 h-8 border-2 border-slate-700 border-t-blue-500 rounded-full animate-spin" />
+              <div className="w-8 h-8 border-2 border-slate-400 dark:border-slate-700 border-t-blue-500 rounded-full animate-spin" />
               <p className="text-sm font-mono uppercase tracking-wider">Rendering Canvas Grid...</p>
             </div>
           )}
@@ -202,22 +202,22 @@ export default function CanvasOverlay({ imageDataUrl, landmarks }) {
       </div>
 
       {/* Legend with interactive colored indicators */}
-      <div className="bg-slate-950 px-6 py-4 border-t border-slate-900 flex flex-wrap gap-4 text-xs font-mono justify-center sm:justify-start">
+      <div className="bg-slate-50 dark:bg-slate-950 px-6 py-4 border-t border-slate-200 dark:border-slate-900 flex flex-wrap gap-4 text-xs font-mono justify-center sm:justify-start">
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
-          <span className="text-slate-400">468 Landmarked Vertices</span>
+          <span className="text-slate-600 dark:text-slate-400">468 Landmarked Vertices</span>
         </div>
         <div className="flex items-center gap-2">
           <span className="w-4 h-0.5 bg-emerald-500" />
-          <span className="text-slate-400">Jaw Corner Vectors</span>
+          <span className="text-slate-600 dark:text-slate-400">Jaw Corner Vectors</span>
         </div>
         <div className="flex items-center gap-2">
           <span className="w-4 h-0.5 bg-amber-500" />
-          <span className="text-slate-400">Cheekbone Biometrics</span>
+          <span className="text-slate-600 dark:text-slate-400">Cheekbone Biometrics</span>
         </div>
         <div className="flex items-center gap-2">
           <span className="w-4 h-0.5 border-t-2 border-dashed border-violet-500" />
-          <span className="text-slate-400">Bilateral Symmetry Midline</span>
+          <span className="text-slate-600 dark:text-slate-400">Bilateral Symmetry Midline</span>
         </div>
       </div>
     </div>

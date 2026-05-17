@@ -7,6 +7,7 @@ import MetricCard from "../../components/MetricCard";
 import HairstyleSection from "../../components/HairstyleSection";
 import CanvasOverlay from "../../components/CanvasOverlay";
 import ShareCard from "../../components/ShareCard";
+import ThemeToggle from "../../components/ThemeToggle";
 
 export default function ResultsPage() {
   const router = useRouter();
@@ -29,8 +30,8 @@ export default function ResultsPage() {
   // Return a sleek loading screen
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-slate-950 text-slate-400">
-        <div className="w-8 h-8 border-2 border-slate-800 border-t-blue-500 rounded-full animate-spin mb-4" />
+      <div className="flex flex-col items-center justify-center min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400">
+        <div className="w-8 h-8 border-2 border-slate-300 dark:border-slate-800 border-t-blue-500 rounded-full animate-spin mb-4" />
         <p className="font-mono text-xs uppercase tracking-widest">Loading metrics database...</p>
       </div>
     );
@@ -39,9 +40,9 @@ export default function ResultsPage() {
   // Handle case where user directly navigates to /results without scanning first
   if (!data) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-slate-950 text-slate-100 p-6 relative">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 p-6 relative">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-35 pointer-events-none" />
-        <div className="z-10 max-w-md w-full bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center space-y-6 shadow-2xl">
+        <div className="z-10 max-w-md w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 rounded-2xl p-8 text-center space-y-6 shadow-2xl">
           <div className="w-14 h-14 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center mx-auto">
             <svg
               className="w-7 h-7"
@@ -59,14 +60,14 @@ export default function ResultsPage() {
             </svg>
           </div>
           <div className="space-y-2">
-            <h2 className="text-xl font-bold text-white tracking-tight">No Active Scan Session</h2>
-            <p className="text-sm text-slate-400 leading-relaxed font-sans">
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">No Active Scan Session</h2>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
               To view facial biometrics, you must first upload a selfie snapshot for analysis.
             </p>
           </div>
           <Link
             href="/"
-            className="block w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm tracking-wide uppercase transition-all duration-300 text-center shadow-md active:scale-95"
+            className="block w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-slate-900 dark:text-white font-bold text-sm tracking-wide uppercase transition-all duration-300 text-center shadow-md active:scale-95"
           >
             Start scanning session
           </Link>
@@ -104,7 +105,7 @@ export default function ResultsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between relative overflow-hidden select-none pb-12">
+    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col justify-between relative overflow-hidden select-none pb-12">
       {/* High tech background elements */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-35 pointer-events-none" />
       <div className="absolute top-[-10%] right-[10%] w-[35rem] h-[35rem] bg-blue-500/5 rounded-full blur-[130px] pointer-events-none" />
@@ -113,35 +114,38 @@ export default function ResultsPage() {
       <div className="z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 space-y-10">
         
         {/* Header bar */}
-        <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 border-b border-slate-900/80">
+        <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 border-b border-slate-200/80 dark:border-slate-900/80">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-[10px] font-mono tracking-widest text-emerald-400 uppercase">DIAGNOSTICS_COMPLETED</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">Biometric Scan Dashboard</h1>
+            <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">Biometric Scan Dashboard</h1>
           </div>
           
-          <Link
-            href="/"
-            className="px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs font-bold text-white tracking-wider uppercase transition-all flex items-center gap-2 shadow-sm"
-          >
-            <svg
-              className="w-4 h-4 text-slate-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <Link
+              href="/"
+              className="px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 hover:border-slate-400 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white tracking-wider uppercase transition-all flex items-center gap-2 shadow-sm"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H17"
-              />
-            </svg>
-            Re-Calibrate Scanner
-          </Link>
+              <svg
+                className="w-4 h-4 text-slate-600 dark:text-slate-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H17"
+                />
+              </svg>
+              Re-Calibrate
+            </Link>
+          </div>
         </header>
 
         {/* Biometrics Grid */}
@@ -149,7 +153,7 @@ export default function ResultsPage() {
           <div className="flex items-center gap-2 px-1">
             <span className="text-xs font-semibold tracking-wider font-mono text-blue-400 uppercase">SECTION_01</span>
             <span className="text-xs text-slate-600 font-mono">/ /</span>
-            <span className="text-xs font-semibold tracking-wider font-mono text-slate-400 uppercase">GEOMETRY_METRICS</span>
+            <span className="text-xs font-semibold tracking-wider font-mono text-slate-600 dark:text-slate-400 uppercase">GEOMETRY_METRICS</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
@@ -202,7 +206,7 @@ export default function ResultsPage() {
           <div className="flex items-center gap-2 px-1">
             <span className="text-xs font-semibold tracking-wider font-mono text-blue-400 uppercase">SECTION_02</span>
             <span className="text-xs text-slate-600 font-mono">/ /</span>
-            <span className="text-xs font-semibold tracking-wider font-mono text-slate-400 uppercase">VECTOR_OVERLAYS</span>
+            <span className="text-xs font-semibold tracking-wider font-mono text-slate-600 dark:text-slate-400 uppercase">VECTOR_OVERLAYS</span>
           </div>
           <CanvasOverlay imageDataUrl={imageDataUrl} landmarks={metrics.landmarks} />
         </section>
@@ -212,7 +216,7 @@ export default function ResultsPage() {
           <div className="flex items-center gap-2 px-1">
             <span className="text-xs font-semibold tracking-wider font-mono text-blue-400 uppercase">SECTION_03</span>
             <span className="text-xs text-slate-600 font-mono">/ /</span>
-            <span className="text-xs font-semibold tracking-wider font-mono text-slate-400 uppercase">STYLE_COMPATIBILITY</span>
+            <span className="text-xs font-semibold tracking-wider font-mono text-slate-600 dark:text-slate-400 uppercase">STYLE_COMPATIBILITY</span>
           </div>
           <HairstyleSection shape={shape} />
         </section>
@@ -222,7 +226,7 @@ export default function ResultsPage() {
           <div className="flex items-center gap-2 px-1">
             <span className="text-xs font-semibold tracking-wider font-mono text-blue-400 uppercase">SECTION_04</span>
             <span className="text-xs text-slate-600 font-mono">/ /</span>
-            <span className="text-xs font-semibold tracking-wider font-mono text-slate-400 uppercase">EXPORTS_&_SHARING</span>
+            <span className="text-xs font-semibold tracking-wider font-mono text-slate-600 dark:text-slate-400 uppercase">EXPORTS_&_SHARING</span>
           </div>
           <ShareCard symmetry={metrics.symmetry} shape={shape} />
         </section>
