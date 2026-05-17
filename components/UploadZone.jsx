@@ -72,7 +72,7 @@ export default function UploadZone({ onImageSelected }) {
         onDragLeave={handleDrag}
         onDrop={handleDrop}
         onClick={() => fileInputRef.current.click()}
-        className={`group relative flex flex-col items-center justify-center border-2 border-dashed rounded-2xl p-10 sm:p-14 cursor-pointer text-center select-none transition-all duration-300 ${
+        className={`group relative flex flex-col items-center justify-center border-2 border-dashed rounded-3xl p-8 sm:p-12 cursor-pointer text-center select-none transition-all duration-300 ${
           isDragActive
             ? "border-cyan-400 bg-cyan-50 dark:bg-cyan-950/20 shadow-lg shadow-cyan-500/20 scale-[1.01]"
             : "border-blue-300 dark:border-slate-800 bg-slate-50 shadow-xl shadow-slate-200/50 dark:shadow-none dark:bg-slate-900/40 hover:border-blue-400 hover:bg-blue-50/50 dark:hover:bg-slate-900/60 hover:shadow-blue-500/10"
@@ -97,12 +97,12 @@ export default function UploadZone({ onImageSelected }) {
         />
 
         {/* Decorative laboratory crosshairs */}
-        <div className="absolute top-3 left-3 w-3 h-3 border-t border-l border-blue-400 dark:border-slate-700/60" />
-        <div className="absolute top-3 right-3 w-3 h-3 border-t border-r border-blue-400 dark:border-slate-700/60" />
-        <div className="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-blue-400 dark:border-slate-700/60" />
-        <div className="absolute bottom-3 right-3 w-3 h-3 border-b border-r border-blue-400 dark:border-slate-700/60" />
+        <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-blue-400 dark:border-slate-700/60" />
+        <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-blue-400 dark:border-slate-700/60" />
+        <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-blue-400 dark:border-slate-700/60" />
+        <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-blue-400 dark:border-slate-700/60" />
 
-        <div className="space-y-6">
+        <div className="space-y-6 w-full">
           {/* Glowing upload visual circle */}
           <div className="w-16 h-16 rounded-full bg-blue-50 dark:bg-slate-950 border border-blue-200 dark:border-slate-800 group-hover:border-blue-400 dark:group-hover:border-blue-500/30 flex items-center justify-center mx-auto shadow-inner transition-all duration-300 group-hover:scale-105">
             {processing ? (
@@ -126,44 +126,50 @@ export default function UploadZone({ onImageSelected }) {
           </div>
 
           <div className="space-y-2">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white tracking-wide group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
-              {processing ? "Compressing biometrics..." : "Upload facial snapshot"}
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white tracking-wide group-hover:text-blue-750 dark:group-hover:text-blue-300 transition-colors">
+              {processing ? "Compressing biometrics..." : "Biometric Capture Portal"}
             </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-sans max-w-xs mx-auto">
-              Drag & drop a front-facing selfie, or click to browse local files.
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-sans max-w-xs mx-auto mb-6">
+              Drag and drop your front-facing portrait here, or choose an input source below.
             </p>
           </div>
-        </div>
-      </div>
 
-      {/* Action buttons, including Selfie camera */}
-      <div className="flex flex-col sm:flex-row gap-3 items-center justify-center max-w-sm mx-auto z-20 relative">
-        <button
-          onClick={() => cameraInputRef.current.click()}
-          className="w-auto px-8 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-blue-600 dark:hover:bg-blue-500 text-white font-semibold text-sm tracking-wide uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-slate-900/20 dark:shadow-blue-900/20 active:scale-95 border border-transparent"
-        >
-          <svg
-            className="w-4 h-4 text-blue-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
-            />
-          </svg>
-          Take Selfie
-        </button>
+          {/* New Dual-Action Button system (Directly inside Card!) */}
+          <div className="flex flex-col sm:flex-row gap-3 items-center justify-center max-w-sm mx-auto z-10 relative pt-2">
+            
+            {/* Action 1: Browse File */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                fileInputRef.current.click();
+              }}
+              className="w-full sm:w-1/2 px-5 py-3 rounded-xl border border-blue-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-900 font-bold text-xs tracking-wider uppercase transition-all duration-200 active:scale-97 flex items-center justify-center gap-2 shadow-sm"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+              </svg>
+              Choose Image
+            </button>
+
+            {/* Action 2: Take Live Selfie */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                cameraInputRef.current.click();
+              }}
+              className="w-full sm:w-1/2 px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-blue-600 dark:hover:bg-blue-500 text-white font-bold text-xs tracking-wider uppercase transition-all duration-200 active:scale-97 flex items-center justify-center gap-2 shadow-md shadow-slate-900/10 dark:shadow-blue-900/15"
+            >
+              <svg className="w-4 h-4 text-blue-400 dark:text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              Take Selfie
+            </button>
+
+          </div>
+        </div>
       </div>
 
       {/* Visual error feedback */}
