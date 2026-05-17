@@ -325,34 +325,45 @@ export default function Home() {
       <div className="absolute top-[-10%] left-[5%] w-[40rem] h-[40rem] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[5%] w-[40rem] h-[40rem] bg-teal-500/5 rounded-full blur-[150px] pointer-events-none" />
 
-      {/* Navigation Header */}
-      <header className="z-10 w-full max-w-7xl mx-auto px-6 py-6 flex justify-between items-center border-b border-slate-200/60 dark:border-slate-900/60 bg-slate-50/50 dark:bg-slate-950/50 backdrop-blur-md">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-500/10">
-            <svg
-              className="w-5 h-5 text-slate-900 dark:text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-              />
-            </svg>
+      {/* Futuristic Floating Navigation Header */}
+      <header className="z-50 w-full max-w-6xl mx-auto px-6 py-4 mt-6 bg-white/70 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-900/80 rounded-2xl backdrop-blur-md flex justify-between items-center shadow-lg shadow-slate-100/30 dark:shadow-none relative">
+        {/* Brand Left Column */}
+        <Link href="/" className="flex items-center gap-4 group select-none">
+          {/* Super premium overlapping colored pill logo from screenshot! */}
+          <div className="relative w-8 h-8 flex items-center justify-center">
+            {/* Pink/Rose Pill */}
+            <div className="absolute w-3.5 h-7 rounded-full bg-gradient-to-tr from-rose-500 to-pink-400 rotate-[30deg] translate-x-[-4px] opacity-90 transition-transform duration-300 group-hover:rotate-[45deg]" />
+            {/* Blue/Cyan Pill */}
+            <div className="absolute w-3.5 h-7 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-500 rotate-[-30deg] translate-x-[4px] opacity-90 mix-blend-multiply dark:mix-blend-screen transition-transform duration-300 group-hover:rotate-[-45deg]" />
           </div>
-          <span className="font-bold font-mono tracking-wider text-sm uppercase text-slate-900 dark:text-white">
-            DetectFaceShape<span className="text-blue-400">.shop</span>
+          <span className="font-extrabold tracking-tight text-base sm:text-lg text-slate-900 dark:text-white transition-colors duration-300 group-hover:text-blue-500">
+            Face Shape Detector
           </span>
-        </div>
-        <div className="flex items-center gap-3">
-          <ThemeToggle />
-          <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-[10px] font-mono tracking-widest text-slate-600 dark:text-slate-400 uppercase">
-            WASM_V1.0.0
+        </Link>
+
+        {/* Navigation Middle Sitemap Links */}
+        <nav className="hidden md:flex items-center gap-8">
+          <Link href="/" className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-150">
+            Face Shape Detector
+          </Link>
+          <a href="#workflow" className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-150">
+            About
+          </a>
+          <a href="#recommendations" className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-150">
+            Blog
+          </a>
+          <Link href="/contact" className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-150">
+            Contact Us
+          </Link>
+        </nav>
+
+        {/* Right side options: Lang Switcher & ThemeToggle */}
+        <div className="flex items-center gap-5">
+          <div className="flex items-center gap-1 text-[11px] font-extrabold text-slate-500 dark:text-slate-400 font-mono select-none">
+            EN
+            <svg className="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
           </div>
+          <ThemeToggle />
         </div>
       </header>
 
