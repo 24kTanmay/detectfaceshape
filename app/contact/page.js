@@ -46,7 +46,7 @@ export default function ContactPage() {
           <Link href="/#workflow" className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-150">
             About
           </Link>
-          <Link href="/#recommendations" className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-150">
+          <Link href="/blog" className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-150">
             Blog
           </Link>
           <Link href="/contact" className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-150">
