@@ -113,16 +113,16 @@ export default function ResultsPage() {
       {/* Futuristic Floating Navigation Header */}
       <header className="z-50 w-full max-w-6xl mx-auto px-6 py-4 mt-6 bg-white/70 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-900/80 rounded-2xl backdrop-blur-md flex justify-between items-center shadow-lg shadow-slate-100/30 dark:shadow-none relative">
         {/* Brand Left Column */}
-        <Link href="/" className="flex items-center gap-4 group select-none">
-          {/* Super premium overlapping colored pill logo from screenshot! */}
+        <Link href="/" className="flex items-center gap-3.5 group select-none">
+          {/* Overlapping stylized premium visual logo */}
           <div className="relative w-8 h-8 flex items-center justify-center">
-            {/* Pink/Rose Pill */}
-            <div className="absolute w-3.5 h-7 rounded-full bg-gradient-to-tr from-rose-500 to-pink-400 rotate-[30deg] translate-x-[-4px] opacity-90 transition-transform duration-300 group-hover:rotate-[45deg]" />
+            {/* Red/Rose Pill */}
+            <div className="absolute w-3.5 h-7 rounded-full bg-gradient-to-tr from-rose-500 to-pink-400 rotate-[30deg] translate-x-[-4.5px] opacity-90 transition-transform duration-300 group-hover:rotate-[45deg]" />
             {/* Blue/Cyan Pill */}
-            <div className="absolute w-3.5 h-7 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-500 rotate-[-30deg] translate-x-[4px] opacity-90 mix-blend-multiply dark:mix-blend-screen transition-transform duration-300 group-hover:rotate-[-45deg]" />
+            <div className="absolute w-3.5 h-7 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-500 rotate-[-30deg] translate-x-[4.5px] opacity-90 mix-blend-multiply dark:mix-blend-screen transition-transform duration-300 group-hover:rotate-[-45deg]" />
           </div>
-          <span className="font-extrabold tracking-tight text-base sm:text-lg text-slate-900 dark:text-white transition-colors duration-300 group-hover:text-blue-500">
-            Face Shape Detector
+          <span className="font-black tracking-tight text-base sm:text-lg text-slate-900 dark:text-white transition-colors duration-300 group-hover:text-blue-500">
+            Detect Face Shape
           </span>
         </Link>
 
