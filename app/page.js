@@ -329,12 +329,14 @@ export default function Home() {
       <header className="z-50 w-full max-w-6xl mx-auto px-6 py-4 mt-6 bg-white/70 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-900/80 rounded-2xl backdrop-blur-md flex justify-between items-center shadow-lg shadow-slate-100/30 dark:shadow-none relative">
         {/* Brand Left Column */}
         <Link href="/" className="flex items-center gap-3.5 group select-none">
-          {/* Overlapping stylized premium visual logo */}
-          <div className="relative w-8 h-8 flex items-center justify-center">
-            {/* Red/Rose Pill */}
-            <div className="absolute w-3.5 h-7 rounded-full bg-gradient-to-tr from-rose-500 to-pink-400 rotate-[30deg] translate-x-[-4.5px] opacity-90 transition-transform duration-300 group-hover:rotate-[45deg]" />
-            {/* Blue/Cyan Pill */}
-            <div className="absolute w-3.5 h-7 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-500 rotate-[-30deg] translate-x-[4.5px] opacity-90 mix-blend-multiply dark:mix-blend-screen transition-transform duration-300 group-hover:rotate-[-45deg]" />
+          {/* Super premium three-pill overlapping logo exactly like reference! */}
+          <div className="relative w-8 h-8 flex items-center justify-center flex-shrink-0 scale-110">
+            {/* Pink/Rose Pill (Left, tilted right) */}
+            <div className="absolute w-3.5 h-6.5 rounded-full bg-gradient-to-tr from-pink-500 to-rose-400 rotate-[30deg] translate-x-[-3.5px] translate-y-[2px] opacity-90 transition-transform duration-300 group-hover:rotate-[45deg]" />
+            {/* Blue/Cyan Pill (Right, tilted left) */}
+            <div className="absolute w-3.5 h-6.5 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-400 rotate-[-30deg] translate-x-[3.5px] translate-y-[2px] opacity-90 transition-transform duration-300 group-hover:rotate-[-45deg]" />
+            {/* Indigo/Deep Blue Center-Top Overlapping Pill */}
+            <div className="absolute w-3.5 h-6.5 rounded-full bg-gradient-to-b from-indigo-900 to-slate-900 dark:from-blue-100 dark:to-indigo-300 translate-y-[-4.5px] opacity-95 transition-transform duration-300 group-hover:scale-105" />
           </div>
           <span className="font-black tracking-tight text-base sm:text-lg text-slate-900 dark:text-white transition-colors duration-300 group-hover:text-blue-500">
             Detect Face Shape
@@ -357,12 +359,8 @@ export default function Home() {
           </Link>
         </nav>
 
-        {/* Right side options: Lang Switcher & ThemeToggle */}
+        {/* Right side options: ThemeToggle */}
         <div className="flex items-center gap-5">
-          <div className="flex items-center gap-1 text-[11px] font-extrabold text-slate-500 dark:text-slate-400 font-mono select-none">
-            EN
-            <svg className="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
-          </div>
           <ThemeToggle />
         </div>
       </header>
