@@ -74,8 +74,8 @@ export default function UploadZone({ onImageSelected }) {
         onClick={() => fileInputRef.current.click()}
         className={`group relative flex flex-col items-center justify-center border-2 border-dashed rounded-2xl p-10 sm:p-14 cursor-pointer text-center select-none transition-all duration-300 ${
           isDragActive
-            ? "border-cyan-400 bg-cyan-950/20 shadow-lg shadow-cyan-500/10 scale-[1.01]"
-            : "border-slate-300 dark:border-slate-800 bg-white/30 dark:bg-slate-900/30 hover:border-blue-500/40 hover:bg-white/50 dark:bg-slate-900/50 hover:shadow-lg hover:shadow-blue-500/5"
+            ? "border-cyan-400 bg-cyan-50 dark:bg-cyan-950/20 shadow-lg shadow-cyan-500/20 scale-[1.01]"
+            : "border-blue-300 dark:border-slate-800 bg-white shadow-xl shadow-slate-200/50 dark:shadow-none dark:bg-slate-900/40 hover:border-blue-400 hover:bg-blue-50/50 dark:hover:bg-slate-900/60 hover:shadow-blue-500/10"
         }`}
       >
         <input
@@ -97,19 +97,19 @@ export default function UploadZone({ onImageSelected }) {
         />
 
         {/* Decorative laboratory crosshairs */}
-        <div className="absolute top-3 left-3 w-3 h-3 border-t border-l border-slate-400/60 dark:border-slate-700/60" />
-        <div className="absolute top-3 right-3 w-3 h-3 border-t border-r border-slate-400/60 dark:border-slate-700/60" />
-        <div className="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-slate-400/60 dark:border-slate-700/60" />
-        <div className="absolute bottom-3 right-3 w-3 h-3 border-b border-r border-slate-400/60 dark:border-slate-700/60" />
+        <div className="absolute top-3 left-3 w-3 h-3 border-t border-l border-blue-400 dark:border-slate-700/60" />
+        <div className="absolute top-3 right-3 w-3 h-3 border-t border-r border-blue-400 dark:border-slate-700/60" />
+        <div className="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-blue-400 dark:border-slate-700/60" />
+        <div className="absolute bottom-3 right-3 w-3 h-3 border-b border-r border-blue-400 dark:border-slate-700/60" />
 
         <div className="space-y-6">
           {/* Glowing upload visual circle */}
-          <div className="w-16 h-16 rounded-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 group-hover:border-blue-500/30 flex items-center justify-center mx-auto shadow-inner transition-all duration-300 group-hover:scale-105">
+          <div className="w-16 h-16 rounded-full bg-blue-50 dark:bg-slate-950 border border-blue-200 dark:border-slate-800 group-hover:border-blue-400 dark:group-hover:border-blue-500/30 flex items-center justify-center mx-auto shadow-inner transition-all duration-300 group-hover:scale-105">
             {processing ? (
               <div className="w-6 h-6 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
             ) : (
               <svg
-                className="w-7 h-7 text-slate-600 dark:text-slate-400 group-hover:text-blue-400 transition-colors duration-300"
+                className="w-7 h-7 text-blue-500 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -126,10 +126,10 @@ export default function UploadZone({ onImageSelected }) {
           </div>
 
           <div className="space-y-2">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white tracking-wide group-hover:text-blue-200 transition-colors">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white tracking-wide group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
               {processing ? "Compressing biometrics..." : "Upload facial snapshot"}
             </h3>
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-sans max-w-xs mx-auto">
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-sans max-w-xs mx-auto">
               Drag & drop a front-facing selfie, or click to browse local files.
             </p>
           </div>
@@ -137,10 +137,10 @@ export default function UploadZone({ onImageSelected }) {
       </div>
 
       {/* Action buttons, including Selfie camera */}
-      <div className="flex flex-col sm:flex-row gap-3 items-center justify-center max-w-sm mx-auto">
+      <div className="flex flex-col sm:flex-row gap-3 items-center justify-center max-w-sm mx-auto z-20 relative">
         <button
           onClick={() => cameraInputRef.current.click()}
-          className="w-auto px-8 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 hover:border-blue-500/30 hover:bg-white/80 dark:bg-slate-900/80 text-slate-900 dark:text-white font-semibold text-sm tracking-wide uppercase transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-md active:scale-95"
+          className="w-auto px-8 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-blue-600 dark:hover:bg-blue-500 text-white font-semibold text-sm tracking-wide uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-slate-900/20 dark:shadow-blue-900/20 active:scale-95 border border-transparent"
         >
           <svg
             className="w-4 h-4 text-blue-400"
