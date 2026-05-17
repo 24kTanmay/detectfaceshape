@@ -232,6 +232,16 @@ export default function ResultsPage() {
         </section>
 
       </div>
+
+      {/* Sticky Footer */}
+      <footer className="z-10 w-full border-t border-slate-200/60 dark:border-slate-900/60 py-6 px-6 bg-white/50 dark:bg-slate-950/20 backdrop-blur-md flex flex-col sm:flex-row justify-between items-center gap-4 mt-12">
+        <p className="text-xs text-slate-500 font-sans">
+          © {new Date().getFullYear()} DetectFaceShape.shop. Powered by client-side MediaPipe WASM.
+        </p>
+        <div className="flex items-center gap-6">
+          <Link href="/contact" className="text-xs text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider font-bold">Contact Us</Link>
+        </div>
+      </footer>
     </main>
   );
 }
