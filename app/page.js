@@ -355,9 +355,9 @@ export default function Home() {
           <a href="#workflow" className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-150">
             About
           </a>
-          <a href="#recommendations" className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-150">
+          <Link href="/blog" className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-150">
             Blog
-          </a>
+          </Link>
           <Link href="/contact" className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-150">
             Contact Us
           </Link>
@@ -381,12 +381,15 @@ export default function Home() {
             Local Client-Side Diagnostics
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] max-w-4xl mx-auto">
-            AI Face Shape Detector – Detect Face Shape Instantly
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] max-w-4xl mx-auto font-mono">
+            AI Face Shape Detector:<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 dark:from-blue-400 dark:via-cyan-400 dark:to-teal-300">
+              Detect Face Shape Instantly
+            </span>
           </h1>
           
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-sans max-w-3xl mx-auto leading-relaxed">
-            Want to know which styles suit you best? Our AI Face Shape Detector makes it easy to find your face shape and get simple, personalized ideas for hairstyles, makeup, and more, so you can feel confident in every look.
+            Instantly map your facial geometry using advanced browser-based computer vision. Scan 468 landmarks locally to determine your face shape category in seconds, unlocking immediate personalized recommendations for ideal hairstyles, beard grooms, eyewear frames, and styling symmetry.
           </p>
         </div>
 
