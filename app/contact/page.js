@@ -60,7 +60,7 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-xl mx-auto leading-relaxed">
-            Have questions or need assistance? We're here to help! Reach out to our team at DetectFaceShape and we'll get back to you as soon as possible.
+            Have questions or need assistance? We&apos;re here to help! Reach out to our team at DetectFaceShape and we&apos;ll get back to you as soon as possible.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export default function ContactPage() {
           <div className="space-y-3">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Get In Touch</h2>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-              Whether you have questions about our AI-powered face shape detection tool, need technical support, or want to provide feedback, we'd love to hear from you. Our team is committed to providing you with the best experience possible.
+              Whether you have questions about our AI-powered face shape detection tool, need technical support, or want to provide feedback, we&apos;d love to hear from you. Our team is committed to providing you with the best experience possible.
             </p>
           </div>
 
@@ -89,7 +89,7 @@ export default function ContactPage() {
             <div className="space-y-3">
               <h3 className="text-lg font-bold text-slate-900 dark:text-white">Response Time</h3>
               <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                We strive to respond to all inquiries within 24-48 hours during business days. For urgent matters, please mention 'URGENT' in your email subject line.
+                We strive to respond to all inquiries within 24-48 hours during business days. For urgent matters, please mention &apos;URGENT&apos; in your email subject line.
               </p>
             </div>
             

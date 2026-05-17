@@ -190,7 +190,7 @@ export default function Home() {
       </header>
 
       {/* Main Content Area */}
-      <section className="z-10 flex-grow flex flex-col items-center justify-center px-6 py-12 sm:py-20 text-center max-w-4xl mx-auto space-y-12 w-full">
+      <section className="z-10 flex-grow flex flex-col items-center justify-center px-6 py-12 sm:py-20 text-center max-w-6xl mx-auto space-y-12 w-full">
         {/* Title Content */}
         <div className="space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold tracking-wider font-mono text-blue-400 uppercase shadow-inner">
@@ -201,17 +201,31 @@ export default function Home() {
             Local Client-Side Diagnostics
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] max-w-3xl mx-auto">
-            Analyze Your Face Shape & Symmetry Instantly
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] max-w-4xl mx-auto">
+            AI Face Shape Detector – Detect Face Shape Instantly
           </h1>
           
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-sans max-w-2xl mx-auto leading-relaxed">
-            Upload your selfie to calculate 468 landmarks, verify facial symmetry score, and identify optimal hairstyles using client-side AI.
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-sans max-w-3xl mx-auto leading-relaxed">
+            Want to know which styles suit you best? Our AI Face Shape Detector makes it easy to find your face shape and get simple, personalized ideas for hairstyles, makeup, and more, so you can feel confident in every look.
           </p>
         </div>
 
-        {/* Upload Action Zone */}
-        <UploadZone onImageSelected={handleImageSelected} />
+        {/* Split Grid: Left side Image, Right side Upload Box */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center w-full max-w-5xl text-left">
+          {/* Left Column: Hero Image (Demo) */}
+          <div className="md:col-span-7 relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+            <img
+              src="/hero_image.png"
+              alt="AI Face Shape Detector Demo"
+              className="w-full h-auto object-cover block"
+            />
+          </div>
+
+          {/* Right Column: UploadZone */}
+          <div className="md:col-span-5 w-full">
+            <UploadZone onImageSelected={handleImageSelected} />
+          </div>
+        </div>
 
         {/* Features Specs list */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-3xl pt-8 border-t border-slate-200/80 dark:border-slate-900/80">
