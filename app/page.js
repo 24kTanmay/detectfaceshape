@@ -378,9 +378,9 @@ export default function Home() {
         </div>
 
         {/* Split Grid: Left side Image, Right side Upload Box */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center w-full max-w-5xl text-left">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch w-full max-w-5xl text-left">
           {/* Left Column: Hero Image (Demo) */}
-          <div className="md:col-span-7 relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+          <div className="md:col-span-7 relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex">
             <img
               src="/hero_image.png"
               alt="AI Face Shape Detector Demo"
@@ -389,7 +389,7 @@ export default function Home() {
           </div>
 
           {/* Right Column: UploadZone */}
-          <div className="md:col-span-5 w-full">
+          <div className="md:col-span-5 w-full flex">
             <UploadZone onImageSelected={handleImageSelected} />
           </div>
         </div>
