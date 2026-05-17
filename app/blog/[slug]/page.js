@@ -55,10 +55,7 @@ export default function BlogPostPage({ params }) {
         {/* Navigation Middle Sitemap Links */}
         <nav className="hidden md:flex items-center gap-8">
           <Link href="/" className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-150">
-            Face Shape Detector
-          </Link>
-          <Link href="/#workflow" className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-150">
-            About
+             Face Shape Detector
           </Link>
           <Link href="/blog" className="text-xs font-bold uppercase tracking-wider text-blue-500 transition-colors duration-150">
             Blog
