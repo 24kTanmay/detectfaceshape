@@ -233,13 +233,85 @@ export default function ResultsPage() {
 
       </div>
 
-      {/* Sticky Footer */}
-      <footer className="z-10 w-full border-t border-slate-200/60 dark:border-slate-900/60 py-6 px-6 bg-white/50 dark:bg-slate-950/20 backdrop-blur-md flex flex-col sm:flex-row justify-between items-center gap-4 mt-12">
-        <p className="text-xs text-slate-500 font-sans">
-          © {new Date().getFullYear()} DetectFaceShape.shop. Powered by client-side MediaPipe WASM.
-        </p>
-        <div className="flex items-center gap-6">
-          <Link href="/contact" className="text-xs text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider font-bold">Contact Us</Link>
+      {/* Futuristic Branded Sitemap Footer */}
+      <footer className="z-10 w-full border-t border-slate-200/80 dark:border-slate-900/80 bg-slate-50 dark:bg-slate-950 py-16 px-6 relative mt-16">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 pb-12 border-b border-slate-200/85 dark:border-slate-900/60 text-left">
+          
+          {/* Brand Col */}
+          <div className="md:col-span-4 space-y-4">
+            <Link href="/" className="flex items-center gap-2 group">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-500/10 group-hover:shadow-blue-500/30 transition-all duration-300">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <span className="font-bold font-mono tracking-wider text-sm uppercase text-slate-900 dark:text-white">
+                DetectFaceShape<span className="text-blue-400">.shop</span>
+              </span>
+            </Link>
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm">
+              Advanced AI-powered biometric facial analysis. Map 468 geometry nodes instantly in your browser to evaluate facial landmarks, jawline ratios, and hair styling compatibility.
+            </p>
+            {/* Live Online Badge */}
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-bold font-mono text-emerald-500 uppercase">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              MediaPipe WASM Engine Active
+            </div>
+          </div>
+
+          {/* Tools Col */}
+          <div className="md:col-span-2 space-y-4">
+            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white font-mono">
+              Online Suite
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li><Link href="/" className="text-slate-500 hover:text-blue-500 transition-colors">Face Shape Detector</Link></li>
+              <li><Link href="/" className="text-slate-500 hover:text-blue-500 transition-colors">Symmetry Diagnostics</Link></li>
+              <li><Link href="/" className="text-slate-500 hover:text-blue-500 transition-colors">Hairstyle Recommendations</Link></li>
+            </ul>
+          </div>
+
+          {/* Resources Col */}
+          <div className="md:col-span-2 space-y-4">
+            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white font-mono">
+              Resources
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li><Link href="/contact" className="text-slate-500 hover:text-blue-500 transition-colors">Support Center</Link></li>
+              <li><Link href="/contact" className="text-slate-500 hover:text-blue-500 transition-colors">Contact Us</Link></li>
+            </ul>
+          </div>
+
+          {/* Connect Col */}
+          <div className="md:col-span-4 space-y-4">
+            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white font-mono">
+              Connect With Us
+            </h4>
+            <div className="flex gap-3">
+              {/* Instagram */}
+              <a href="#" className="w-8 h-8 rounded-lg bg-slate-200/50 dark:bg-slate-900 hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-pink-500 hover:to-indigo-500 hover:text-white text-slate-500 dark:text-slate-400 flex items-center justify-center transition-all duration-300 hover:scale-105">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </a>
+              {/* X / Twitter */}
+              <a href="#" className="w-8 h-8 rounded-lg bg-slate-200/50 dark:bg-slate-900 hover:bg-slate-950 hover:text-white dark:hover:bg-white dark:hover:text-slate-950 text-slate-500 dark:text-slate-400 flex items-center justify-center transition-all duration-300 hover:scale-105">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+            </div>
+            <div className="space-y-1.5">
+              <label className="text-[10px] font-mono uppercase tracking-widest text-slate-400 block">Select Region</label>
+              <select className="text-xs bg-slate-200/40 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-slate-600 dark:text-slate-400 focus:outline-none focus:border-blue-500">
+                <option value="en">English (US)</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <div className="max-w-6xl mx-auto pt-6 flex flex-col sm:flex-row justify-between items-center text-[10px] text-slate-500 font-mono gap-4">
+          <p>© {new Date().getFullYear()} DetectFaceShape.shop. Powered by WebAssembly face-mesh algorithms. All rights reserved.</p>
+          <div className="flex gap-4">
+            <Link href="/contact" className="hover:text-blue-500 transition-colors uppercase tracking-wider">Contact</Link>
+          </div>
         </div>
       </footer>
     </main>
