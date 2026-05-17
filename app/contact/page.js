@@ -20,14 +20,18 @@ export default function ContactPage() {
       <header className="z-50 w-full max-w-6xl mx-auto px-6 py-4 mt-6 bg-white/70 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-900/80 rounded-2xl backdrop-blur-md flex justify-between items-center shadow-lg shadow-slate-100/30 dark:shadow-none relative">
         {/* Brand Left Column */}
         <Link href="/" className="flex items-center gap-3.5 group select-none">
-          {/* Super premium three-pill overlapping logo exactly like reference! */}
-          <div className="relative w-8 h-8 flex items-center justify-center flex-shrink-0 scale-110">
-            {/* Pink/Rose Pill (Left, tilted right) */}
-            <div className="absolute w-3.5 h-6.5 rounded-full bg-gradient-to-tr from-pink-500 to-rose-400 rotate-[30deg] translate-x-[-3.5px] translate-y-[2px] opacity-90 transition-transform duration-300 group-hover:rotate-[45deg]" />
-            {/* Blue/Cyan Pill (Right, tilted left) */}
-            <div className="absolute w-3.5 h-6.5 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-400 rotate-[-30deg] translate-x-[3.5px] translate-y-[2px] opacity-90 transition-transform duration-300 group-hover:rotate-[-45deg]" />
-            {/* Indigo/Deep Blue Center-Top Overlapping Pill */}
-            <div className="absolute w-3.5 h-6.5 rounded-full bg-gradient-to-b from-indigo-900 to-slate-900 dark:from-blue-100 dark:to-indigo-300 translate-y-[-4.5px] opacity-95 transition-transform duration-300 group-hover:scale-105" />
+          {/* Official brand visual gradient shield checkmark logo */}
+          <div className="w-8 h-8 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 shadow-lg shadow-blue-500/10 rounded-lg">
+              <defs>
+                <linearGradient id="headerGradContact" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#2563eb" stopOpacity="1" />
+                  <stop offset="100%" stopColor="#06b6d4" stopOpacity="1" />
+                </linearGradient>
+              </defs>
+              <rect width="24" height="24" rx="5.5" fill="url(#headerGradContact)" stroke="none" />
+              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
           </div>
           <span className="font-black tracking-tight text-base sm:text-lg text-slate-900 dark:text-white transition-colors duration-300 group-hover:text-blue-500">
             Detect Face Shape
